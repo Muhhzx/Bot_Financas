@@ -1,13 +1,13 @@
-🤖 Bot de Controle de Finanças | Bot_Financas
+# 🤖 Bot de Controle de Finanças | Bot_Financas
 <p align="center">
 Um assistente financeiro pessoal construído com Flask e Twilio para registro rápido e monitoramento inteligente de despesas via WhatsApp.
 </p>
 
-✨ Status e Tecnologias
+# ✨ Status e Tecnologias
 Status	Framework Web	API de Mensageria	Linguagem
 Em Desenvolvimento	Flask	Twilio API for WhatsApp	Python
 
-Exportar para as Planilhas
+# Exportar para as Planilhas
 🛠 Tecnologias Principais
 <p align="left">
 <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python Badge">
@@ -16,10 +16,10 @@ Exportar para as Planilhas
 <img src="https://img.shields.io/badge/Sql-000000?style=for-the-badge&logo=sqlite&logoColor=white" alt="Banco de Dados Badge">
 </p>
 
-💡 Sobre o Projeto
+# 💡 Sobre o Projeto
 O Bot_Financas transforma a gestão financeira em uma conversa simples. Desenvolvido com Flask para gerenciar as rotas do webhook e Twilio para a comunicação via WhatsApp, o bot resolve o problema de esquecermos de registrar despesas, permitindo o monitoramento em tempo real.
 
-🔑 Principais Funcionalidades (MVP)
+# 🔑 Principais Funcionalidades (MVP)
 Registro Instantâneo: Adiciona despesas e receitas enviando comandos simples.
 
 Sistema de Webhooks: Utiliza o Flask para receber mensagens do Twilio e processá-las.
@@ -30,7 +30,7 @@ Consultas em Tempo Real: Responde a consultas de saldo e extrato na hora.
 
 Persistência de Dados: Armazenamento seguro de todas as transações em SQL.
 
-🏗 Arquitetura do Sistema
+# 🏗 Arquitetura do Sistema
 O projeto adota a arquitetura Model-Service-Controller (MSC). O Flask atua no ponto de entrada (app.py), gerenciando o webhook do Twilio e direcionando o fluxo para os Controllers.
 
 Componente	Pasta	Responsabilidade
@@ -39,14 +39,14 @@ Controller	controllers/	Trata as requisições (mensagens do Twilio/WhatsApp), v
 Service	services/	Contém a lógica de negócio, como cálculo de saldo, geração de relatórios e validação de transações.
 Model	models/	Define a estrutura dos dados (como Transacao, Usuario) e a interação direta com o Banco de Dados (ORM).
 
-Exportar para as Planilhas
+# Exportar para as Planilhas
 ⚙️ Configuração e Execução (Passo a Passo)
 📋 Pré-requisitos
 Python 3.10+ | Git
 
 Conta Twilio (com o Sandbox do WhatsApp configurado) | ngrok (ou outro túnel)
 
-1. Clonagem e Instalação
+# 1. Clonagem e Instalação
 Bash
 
 # Clone e entre no diretório
