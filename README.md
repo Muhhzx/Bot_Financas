@@ -88,21 +88,7 @@ Receita	ganhei <valor> <origem>	Registra uma entrada de dinheiro.	ganhei 4000 Sa
 Saldo	meu saldo	Retorna o valor atual do seu saldo.	meu saldo
 Extrato	extrato <período>	Gera um resumo de gastos e receitas.	extrato semanal
 
-Exportar para as Planilhas
-🤝 Contribuição
-Sua contribuição é o que torna este projeto ainda melhor. Veja como participar:
-
-Faça um Fork do projeto.
-
-Crie um branch para sua funcionalidade: git checkout -b feature/nova-funcionalidade.
-
-Commit suas mudanças: git commit -m 'feat: Adiciona funcionalidade X'.
-
-Envie para o branch: git push origin feature/nova-funcionalidade.
-
-Abra um Pull Request.
-
-📧 Contato.
+📧 Contato.  
 Nome: Murilo Gomes Sardinha
 
 GitHub: @Muhhzx
