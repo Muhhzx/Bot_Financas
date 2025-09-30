@@ -102,7 +102,7 @@ Envie para o branch: git push origin feature/nova-funcionalidade.
 
 Abra um Pull Request.
 
-📧 Contato
+📧 Contato.
 Nome: Murilo Gomes Sardinha
 
 GitHub: @Muhhzx
