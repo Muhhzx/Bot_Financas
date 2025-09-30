@@ -13,7 +13,7 @@ Exportar para as Planilhas
 <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python Badge">
 <img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white" alt="Flask Badge">
 <img src="https://img.shields.io/badge/Twilio-F22F46?style=for-the-badge&logo=twilio&logoColor=white" alt="Twilio Badge">
-<img src="https://img.shields.io/badge/Sql-000000?style=for-the-badge&logo=[DB_LOGO]&logoColor=white" alt="Banco de Dados Badge">
+<img src="https://img.shields.io/badge/Sql-000000?style=for-the-badge&logo=sqlite&logoColor=white" alt="Banco de Dados Badge">
 </p>
 
 💡 Sobre o Projeto
@@ -28,7 +28,7 @@ Categorização Inteligente: Reconhece ou permite definir categorias para cada t
 
 Consultas em Tempo Real: Responde a consultas de saldo e extrato na hora.
 
-Persistência de Dados: Armazenamento seguro de todas as transações em [Nome do BD].
+Persistência de Dados: Armazenamento seguro de todas as transações em SQL.
 
 🏗 Arquitetura do Sistema
 O projeto adota a arquitetura Model-Service-Controller (MSC). O Flask atua no ponto de entrada (app.py), gerenciando o webhook do Twilio e direcionando o fluxo para os Controllers.
@@ -42,13 +42,9 @@ Model	models/	Define a estrutura dos dados (como Transacao, Usuario) e a intera�
 Exportar para as Planilhas
 ⚙️ Configuração e Execução (Passo a Passo)
 📋 Pré-requisitos
-Python 3.10+
+Python 3.10+ | Git
 
-Git
-
-Conta Twilio (com o Sandbox do WhatsApp configurado)
-
-ngrok (ou outro túnel para expor o servidor Flask à internet)
+Conta Twilio (com o Sandbox do WhatsApp configurado) | ngrok (ou outro túnel)
 
 1. Clonagem e Instalação
 Bash
@@ -64,7 +60,7 @@ source venv/bin/activate  # ou .\venv\Scripts\activate no Windows
 # Instale as dependências
 pip install -r requirements.txt
 2. Variáveis de Ambiente
-Crie o arquivo .env na raiz do projeto. É crucial para a segurança e para a integração com o Twilio e Flask.
+Crie o arquivo .env na raiz do projeto.
 
 Ini, TOML
 
@@ -76,27 +72,14 @@ TWILIO_AUTH_TOKEN=[SEU TOKEN DE AUTENTICACAO TWILIO]
 # Banco de Dados
 DB_CONNECTION_STRING=[SUA STRING DE CONEXAO DO BD]
 
-# Chave secreta do Flask para segurança (pode ser um valor aleatório)
+# Chave secreta do Flask para segurança
 FLASK_SECRET_KEY='[UMA CHAVE SECRETA ALEATORIA E COMPLEXA]'
 3. Execução Local e Configuração do Webhook
-Inicie o Servidor Flask:
+Inicie o Servidor Flask: python app.py
 
-Bash
+Exponha o Flask com ngrok: ngrok http 5000
 
-python app.py
-Exponha o Flask com ngrok:
-Se o Flask estiver rodando na porta 5000:
-
-Bash
-
-ngrok http 5000
-Copie o URL gerado pelo ngrok (ex: https://abcd.ngrok-free.app).
-
-Configure o Twilio:
-Na página de configuração do Sandbox do WhatsApp (ou número oficial) do Twilio, defina o webhook para [URL_DO_NGROK]/whatsapp.
-
-4. Interaja com o Bot!
-Envie o comando ajuda ou qualquer comando de teste para o número do Twilio Sandbox no WhatsApp.
+Configure o Twilio: Defina o webhook na Twilio para [URL_DO_NGROK]/whatsapp.
 
 💬 Guia Rápido de Comandos
 Comando	Formato	Descrição	Exemplo de Envio
@@ -120,7 +103,7 @@ Envie para o branch: git push origin feature/nova-funcionalidade.
 Abra um Pull Request.
 
 📧 Contato
-Nome: Murilo Gomes Sardinha 
+Nome: Murilo Gomes Sardinha
 
 GitHub: @Muhhzx
 
