@@ -13,7 +13,7 @@ Exportar para as Planilhas
 <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python Badge">
 <img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white" alt="Flask Badge">
 <img src="https://img.shields.io/badge/Twilio-F22F46?style=for-the-badge&logo=twilio&logoColor=white" alt="Twilio Badge">
-<img src="https://img.shields.io/badge/[DB_NAME]-000000?style=for-the-badge&logo=[DB_LOGO]&logoColor=white" alt="Banco de Dados Badge">
+<img src="https://img.shields.io/badge/Sql-000000?style=for-the-badge&logo=[DB_LOGO]&logoColor=white" alt="Banco de Dados Badge">
 </p>
 
 💡 Sobre o Projeto
