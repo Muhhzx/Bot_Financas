@@ -118,3 +118,10 @@ Commit suas mudanças: git commit -m 'feat: Adiciona funcionalidade X'.
 Envie para o branch: git push origin feature/nova-funcionalidade.
 
 Abra um Pull Request.
+
+📧 Contato
+Nome: Murilo Gomes Sardinha 
+
+GitHub: @Muhhzx
+
+Email: murilogomes.dev@gmail.com
