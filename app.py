@@ -13,11 +13,11 @@ load_dotenv()
 
 
 app = Flask(__name__)
-app.register_blueprint(bot_bp)
 
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///despesas.db"
 app.config ["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db.init_app(app)
+app.register_blueprint(bot_bp)
 
 ACCOUNT_SID = os.getenv("TWILIO_ACCOUNT_SID")
 AUTH_TOKEN = os.getenv("TWILIO_AUTH_TOKEN")
