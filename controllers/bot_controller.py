@@ -11,11 +11,10 @@ bot_bp = Blueprint("bot", __name__)
 
 @bot_bp.route("/whatsapp", methods=["POST"])
 def bot_financas():
-    numero = request.form.get("From")
-    msg = request.form.get("Body").strip().lower()
+    numero = request.form.get("From", "").replace("whatsapp:", "").strip()
+    msg = request.form.get("Body", "").strip().lower()
     resp = MessagingResponse()
 
-    # Cria usuário automaticamente se não existir
     user = User.query.filter_by(numero_wpp=numero).first()
     if not user:
         user = User(numero_wpp=numero)
@@ -25,10 +24,12 @@ def bot_financas():
     # ===== COMANDOS =====
     if msg.startswith("add "):
         try:
-            _, descricao, valor = msg.split(" ", 2)
-            resposta = registrar_despesa(numero, descricao, float(valor))
+            partes = msg.split(" ")
+            descricao = " ".join(partes[1:-1])
+            valor = float(partes[-1])
+            resposta = registrar_despesa(numero, descricao, valor)
         except ValueError:
-            resposta = "Formato inválido! Use: add <descricao> <valor>"
+            resposta = "❌ Formato inválido! Use: add <descrição> <valor>"
 
     elif msg == "listar":
         resposta = listar_despesas(numero)
@@ -38,33 +39,35 @@ def bot_financas():
             _, id_str = msg.split(" ", 1)
             resposta = deletar_despesa(numero, int(id_str))
         except ValueError:
-            resposta = "Formato inválido! Use: del numero da despesa"
+            resposta = "❌ Formato inválido! Use: del <id>"
 
     elif msg.startswith("conta add "):
         try:
-            _, descricao, valor, data_str = msg.split(" ", 3)
-            data_vencimento = datetime.strptime(data_str, "%d/%m/%Y")
-            resposta = registrar_conta(numero, descricao, float(valor), data_vencimento)
-        except ValueError:
-            resposta = "Formato inválido! Use: conta add <descricao> <valor> <dd/mm/yyyy>"
+            partes = msg.split(" ")
+            descricao = " ".join(partes[2:-2])
+            valor = float(partes[-2])
+            data_venc = datetime.strptime(partes[-1], "%d/%m/%Y")
+            resposta = registrar_conta(numero, descricao, valor, data_venc)
+        except Exception:
+            resposta = "❌ Use: conta add <descrição> <valor> <dd/mm/yyyy>"
 
     elif msg == "conta listar":
         resposta = listar_contas(numero)
 
     elif msg.startswith("conta pagar "):
         try:
-            _, id_str = msg.split(" ", 2)
+            _, _, id_str = msg.split(" ", 2)
             resposta = pagar_conta(numero, int(id_str))
         except ValueError:
-            resposta = "Formato inválido! Use: conta pagar <id>"
+            resposta = "❌ Use: conta pagar <id>"
 
     else:
         resposta = (
-            "Comandos disponíveis:\n"
-            "- add <descricao> <valor>\n"
+            "📘 *Comandos disponíveis:*\n"
+            "- add <descrição> <valor>\n"
             "- listar\n"
             "- del <id>\n"
-            "- conta add <descricao> <valor> <dd/mm/yyyy>\n"
+            "- conta add <descrição> <valor> <dd/mm/yyyy>\n"
             "- conta listar\n"
             "- conta pagar <id>"
         )

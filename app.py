@@ -26,7 +26,7 @@ NUMERO_USUARIO = os.getenv("NUMERO_USUARIO")
 client = Client(ACCOUNT_SID, AUTH_TOKEN)
 
 scheduler = BackgroundScheduler()
-scheduler.add_job(resetar_despesas, "cron", day=30, hour=0, minute=0)  # todo dia 30 às 00h
+scheduler.add_job(resetar_despesas, "cron", day=30, hour=0, minute=0, args=[client])  
 scheduler.start()
 
 
